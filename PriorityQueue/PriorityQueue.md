@@ -1,4 +1,5 @@
 ### Implementation
+In go, we change use heap to construct PriorityQueue, here's a example of building a small top heap. The smallest item alway on top.
 ```
 import "container/heap"
 
@@ -25,6 +26,17 @@ func (h *SmallHeap) Pop() any {
     *h = (*h)[0 : len(*h)-1]
     return x
 }
+
+func main() {
+    // Init
+    h := &SmallHeap{}
+    heap.Init(h)
+    // Push
+    heap.Push(h, 1)
+    // Pop
+    top := heap.Pop(h).(int)
+}
+
 ```
 
 ### Examples
